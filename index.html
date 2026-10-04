@@ -261,6 +261,46 @@ a { color: inherit; }
 .footer ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); }
 .footer a { color: var(--on-navy-muted); text-decoration: none; }
 .footer a:hover { color: var(--on-navy); text-decoration: underline; }
+
+/* Copy additions */
+.hero-support { margin-top: var(--s4); max-width: var(--measure); color: var(--slate); }
+.area-tag { font: italic 400 19px/28px var(--serif); color: var(--navy); }
+.section-cta { margin-top: var(--s7); }
+.perspectives { list-style: none; padding: 0; border-top: 1px solid var(--sand); }
+.perspectives li { padding-block: var(--s3); border-bottom: 1px solid var(--sand); display: grid; gap: 2px; }
+.perspectives strong { font: 500 19px/26px var(--serif); color: var(--navy); }
+.perspectives span { font-size: 15px; line-height: 24px; color: var(--slate); }
+.mentor-approach { margin-top: var(--s6); display: grid; gap: var(--s3); }
+.why-body { display: grid; gap: var(--s4); margin-top: var(--s5); max-width: var(--measure); }
+.industries .lede { font-size: 17px; line-height: 28px; }
+
+/* Booking form */
+[hidden] { display: none !important; }
+.contact-grid--form { grid-template-columns: 5fr 7fr; }
+.contact-grid--form .details { margin-top: var(--s7); }
+.form-card { background: var(--paper); color: var(--charcoal); border-radius: 4px; padding: var(--s6); }
+.form-card :focus-visible { outline-color: var(--navy); }
+.form-card h3 { font: 400 30px/38px var(--serif); color: var(--navy); }
+.form-card .intro { margin-top: var(--s2); font-size: 15px; line-height: 24px; color: var(--slate); }
+.form-grid { display: grid; gap: var(--s4); margin-top: var(--s5); }
+.form-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.field { display: grid; gap: var(--s1); align-content: start; }
+.field label { font: 600 14px/20px var(--sans); color: var(--charcoal); }
+.req { color: var(--garnet); }
+.field input, .field select, .field textarea { width: 100%; font: 400 16px/24px var(--sans); color: var(--charcoal); background: #fff; border: 1px solid var(--control-border); border-radius: 2px; padding: 10px 12px; }
+.field textarea { min-height: 120px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--navy); }
+.consent { display: flex; gap: var(--s3); align-items: flex-start; font-size: 15px; line-height: 22px; }
+.consent input { width: 18px; height: 18px; margin: 2px 0 0; flex-shrink: 0; accent-color: var(--navy); }
+.form-card .btn--primary { background: var(--navy); color: var(--on-navy); justify-self: start; }
+.form-card .btn--primary:hover { background: var(--navy-hover); }
+.form-card .btn[disabled] { opacity: .6; cursor: progress; }
+.form-error { font-size: 15px; line-height: 22px; color: var(--garnet); }
+.form-done { display: grid; gap: var(--s3); }
+.form-done p { font: italic 400 20px/30px var(--serif); color: var(--navy); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 900px) { .contact-grid--form { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .form-pair { grid-template-columns: 1fr; } .form-card { padding: var(--s5) var(--s4); } .form-card .btn--primary { justify-self: stretch; } }
 </style>
 </head>
 <body>
@@ -285,7 +325,7 @@ a { color: inherit; }
     </nav>
     <div class="nav-right">
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <a class="btn btn--primary btn--sm" href="#contact">Start a Conversation</a>
+      <a class="btn btn--primary btn--sm" href="#start">Start a Conversation</a>
     </div>
   </div>
   <div class="mobile-menu" id="mobile-menu" hidden>
@@ -309,16 +349,17 @@ a { color: inherit; }
         <p class="eyebrow">Executive, Career &amp; Leadership Coach</p>
         <h1 class="hero-name">Ruth Singh</h1>
         <hr class="hero-rule">
-        <p class="lede">Helping professionals navigate career transitions, grow as leaders and create meaningful careers with confidence and clarity.</p>
+        <p class="lede">Helping professionals navigate career transitions, grow as leaders and thrive through change.</p>
+        <p class="hero-support">I combine 25+ years of corporate HR leadership experience with professional coaching to help individuals gain clarity, navigate career and workplace challenges, strengthen their leadership effectiveness and create purposeful next steps.</p>
         <div class="hero-actions">
-          <a class="btn btn--primary" href="#contact">Start a Conversation</a>
+          <a class="btn btn--primary" href="#start">Start a Conversation</a>
           <a class="btn btn--secondary" href="#coaching">Explore Coaching</a>
         </div>
         <ul class="stats" aria-label="Credentials at a glance">
           <li class="stat"><span class="stat-value">PCC</span><span class="stat-label">International Coaching Federation</span></li>
           <li class="stat"><span class="stat-value">25+</span><span class="stat-label">Years corporate HR experience</span></li>
           <li class="stat"><span class="stat-value">1,000+</span><span class="stat-label">Professionals coached</span></li>
-          <li class="stat"><span class="stat-value">1,800+</span><span class="stat-label">Coaching hours</span></li>
+          <li class="stat"><span class="stat-value">2,000+</span><span class="stat-label">Coaching hours</span></li>
         </ul>
       </div>
       <figure class="photo hero-photo">
@@ -338,12 +379,12 @@ a { color: inherit; }
       <div class="intro-cols">
         <div class="head" style="margin-bottom:0">
           <p class="eyebrow">Coaching</p>
-          <h2 class="h-display">Coaching for your next chapter</h2>
+          <h2 class="h-display">Coaching for the moments that matter</h2>
         </div>
         <div class="stack">
-          <p>Your career can change in many ways. You may be stepping into your first leadership role, preparing for your next career move, navigating organisational change, returning to work, or simply wondering, “What next?”</p>
-          <p>Coaching gives you the space to step back, reflect, challenge your thinking and make intentional choices about your career and leadership journey.</p>
-          <p class="muted">I work with professionals from new managers to senior executives and C-suite leaders.</p>
+          <p>Careers evolve. You may be considering a career move, stepping into your first leadership role, preparing for a bigger position, navigating organisational change, returning to work, or simply asking yourself, “What next?”</p>
+          <p>Coaching provides the space to step back, reflect, challenge your thinking and make intentional choices about your career, leadership and future.</p>
+          <p class="muted">I work with professionals across career stages — from new managers to senior executives and C-suite leaders.</p>
         </div>
       </div>
 
@@ -352,7 +393,8 @@ a { color: inherit; }
           <span class="area-num">01</span>
           <div class="area-main">
             <h3 class="h2">Career Development &amp; Transition</h3>
-            <p>Gain clarity about your career direction, strengthen your positioning and navigate career changes with confidence.</p>
+            <p class="area-tag">Gain clarity. Navigate change. Move forward with confidence.</p>
+            <p>Whether you are considering a career move, changing direction or preparing for your next opportunity, coaching can help you understand what you want and create a practical path forward.</p>
           </div>
           <ul class="area-list">
             <li>Career direction and clarity</li>
@@ -367,7 +409,8 @@ a { color: inherit; }
           <span class="area-num">02</span>
           <div class="area-main">
             <h3 class="h2">Executive &amp; Leadership Coaching</h3>
-            <p>Build executive presence, strategic thinking, influence, stakeholder effectiveness and leadership confidence.</p>
+            <p class="area-tag">Lead with greater confidence, presence and impact.</p>
+            <p>For experienced professionals and leaders looking to strengthen how they lead, communicate, influence and create impact.</p>
           </div>
           <ul class="area-list">
             <li>Executive presence</li>
@@ -375,62 +418,85 @@ a { color: inherit; }
             <li>Stakeholder management</li>
             <li>Communication and influence</li>
             <li>Leading through change</li>
-            <li>Managing teams effectively</li>
+            <li>Leadership effectiveness</li>
+            <li>Building confidence and credibility</li>
           </ul>
         </li>
         <li class="area">
           <span class="area-num">03</span>
           <div class="area-main">
             <h3 class="h2">New Manager Coaching</h3>
-            <p>Make the transition from individual contributor to people leader with greater confidence and effectiveness.</p>
+            <p class="area-tag">From individual contributor to confident people leader.</p>
+            <p>The transition into management brings a new set of challenges. Coaching helps new managers develop the mindset, skills and confidence needed to lead effectively.</p>
           </div>
           <ul class="area-list">
             <li>Managing former peers</li>
             <li>Delegation and accountability</li>
             <li>Giving and receiving feedback</li>
             <li>Difficult conversations</li>
-            <li>Building credibility and confidence</li>
+            <li>Building credibility</li>
+            <li>Managing performance</li>
+            <li>Building and developing teams</li>
           </ul>
         </li>
         <li class="area">
           <span class="area-num">04</span>
           <div class="area-main">
-            <h3 class="h2">Career &amp; Personal Transformation</h3>
-            <p>Step back, reassess what matters and design the next phase of your professional journey.</p>
+            <h3 class="h2">Career Reinvention &amp; Your Next Chapter</h3>
+            <p class="area-tag">Step back. Reassess. Create what comes next.</p>
+            <p>Sometimes the question isn’t simply “What’s my next job?” It is “What do I want from the next phase of my career and life?”</p>
+            <p>Coaching can help you explore possibilities, reconnect with what matters and make purposeful choices.</p>
           </div>
           <ul class="area-list">
+            <li>Career reinvention</li>
             <li>Preparing for the next phase of a career</li>
-            <li>Reassessing what matters</li>
-            <li>Building confidence and resilience</li>
+            <li>Exploring new directions</li>
+            <li>Rebuilding confidence after a career setback</li>
+            <li>Finding purpose and direction</li>
+            <li>Creating a meaningful next chapter</li>
           </ul>
         </li>
         <li class="area">
           <span class="area-num">05</span>
           <div class="area-main">
-            <h3 class="h2">AI-Enabled Career Development</h3>
-            <p>Understand how AI is changing the workplace and identify the skills, tools and mindset needed to remain future-ready.</p>
+            <h3 class="h2">AI-Ready Career Development</h3>
+            <p class="area-tag">Stay relevant in a rapidly changing workplace.</p>
+            <p>AI is reshaping roles, skills and career paths. I help professionals understand how their work is changing, identify capabilities they need to develop and create a practical plan for staying future-ready.</p>
           </div>
           <ul class="area-list">
-            <li>How AI is changing careers and workplaces</li>
+            <li>Understanding how AI is changing careers and workplaces</li>
             <li>Identifying future-ready skills</li>
-            <li>Using AI-enabled tools for career development</li>
-            <li>CV and professional profile optimisation</li>
-            <li>Interview preparation and mock interviews</li>
+            <li>AI-enabled career development</li>
+            <li>CV and LinkedIn profile optimisation</li>
+            <li>Interview preparation</li>
+            <li>Identifying relevant learning and upskilling opportunities</li>
           </ul>
         </li>
         <li class="area">
           <span class="area-num">06</span>
           <div class="area-main">
-            <h3 class="h2">Coaching for Organisations</h3>
-            <p>As organisations grow, leadership teams need to scale up and adapt their mindset to a more complex, fast-changing environment. I help them frame a clear vision and mission, set goals and empower the team to achieve them.</p>
+            <h3 class="h2">Workplace &amp; EAP Coaching</h3>
+            <p class="area-tag">Support for the challenges that affect work, careers and wellbeing.</p>
+            <p>Drawing on more than 25 years of corporate HR experience and extensive coaching practice, I support professionals navigating workplace and career challenges that can affect confidence, relationships, performance and career direction.</p>
           </div>
           <ul class="area-list">
-            <li>Organisational change and transformation</li>
-            <li>Individual coaching of key team members</li>
-            <li>Group coaching for leadership teams</li>
+            <li>Workplace stress and overwhelm</li>
+            <li>Career uncertainty and transitions</li>
+            <li>Performance and confidence challenges</li>
+            <li>Difficult workplace relationships</li>
+            <li>Manager–employee challenges</li>
+            <li>Difficult conversations</li>
+            <li>Leadership transitions</li>
+            <li>Communication and interpersonal effectiveness</li>
+            <li>Organisational change and restructuring</li>
+            <li>Work-life integration</li>
+            <li>Building resilience</li>
+            <li>Return-to-work and career re-entry</li>
+            <li>Professional development and career planning</li>
           </ul>
         </li>
       </ol>
+      <div class="section-cta"><a class="btn btn--primary" href="#start">Start a Conversation</a></div>
     </div>
   </section>
 
@@ -439,19 +505,20 @@ a { color: inherit; }
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">How coaching works</p>
-        <h2 class="h-display">Discover, learn, grow, transform</h2>
-        <p class="lede">Coaching is more than understanding what to change. It is about feeling it, doing it, learning from it, and carrying that learning long after our sessions end.</p>
+        <h2 class="h-display">Discover. Reflect. Grow. Transform.</h2>
+        <p class="lede">Coaching is not about being given answers. It is about creating the space to think more deeply, see new possibilities and make choices that are right for you.</p>
+        <p class="lede">Together, we explore what matters, identify what may be holding you back, consider different perspectives and translate insight into purposeful action.</p>
       </div>
       <ol class="steps">
-        <li class="step"><span class="step-num">1</span><h3 class="h2">Discover</h3><p>Get clear on what you are really seeking and where you want to go, and set your goals and objectives.</p></li>
-        <li class="step"><span class="step-num">2</span><h3 class="h2">Learn</h3><p>Explore what is holding you back, find options for dealing with those roadblocks and learn ways to overcome them.</p></li>
-        <li class="step"><span class="step-num">3</span><h3 class="h2">Grow</h3><p>Deepen your capacity to reflect on your reactions, triggers and experiences, and turn them into personal growth and leadership capability.</p></li>
-        <li class="step"><span class="step-num">4</span><h3 class="h2">Transform</h3><p>Consciously change what no longer serves you, and become more aware, courageous and resilient as an individual and as a leader.</p></li>
+        <li class="step"><span class="step-num">1</span><h3 class="h2">Discover</h3><p>Clarify what you really want and define the outcomes that matter to you.</p></li>
+        <li class="step"><span class="step-num">2</span><h3 class="h2">Reflect</h3><p>Explore your assumptions, patterns, strengths and perspectives — and consider what may need to change.</p></li>
+        <li class="step"><span class="step-num">3</span><h3 class="h2">Grow</h3><p>Experiment with new approaches, build capability and learn from your experiences.</p></li>
+        <li class="step"><span class="step-num">4</span><h3 class="h2">Transform</h3><p>Turn insight into sustained action and create meaningful change in the way you work, lead and navigate your career.</p></li>
       </ol>
       <div class="who">
-        <div><h3 class="h2">Moving to a new role</h3><p>Executives at any level in transition from one role to another, or pivoting to a completely different one.</p></div>
-        <div><h3 class="h2">Moving up</h3><p>From individual contributor to team manager, or from functional leader to Business Head and C-suite.</p></div>
-        <div><h3 class="h2">Starting a venture</h3><p>Professionals ready to go out on their own, looking for their niche, an action plan and clear goals.</p></div>
+        <div><h3 class="h2">Navigating a career move</h3><p>Considering a new role, changing direction or making a career pivot? Gain clarity about what you want and develop a practical strategy for moving forward.</p></div>
+        <div><h3 class="h2">Stepping into leadership</h3><p>Moving from individual contributor to manager, or from functional leader to Business Head or C-suite? Build the confidence, presence and leadership capability needed for the next level.</p></div>
+        <div><h3 class="h2">Creating your next chapter</h3><p>Considering what comes after your current role or career phase? Explore possibilities, reassess what matters and create a purposeful plan for what’s next.</p></div>
       </div>
     </div>
   </section>
@@ -461,24 +528,35 @@ a { color: inherit; }
     <div class="wrap mentor-grid">
       <div>
         <div class="head" style="margin-bottom:0">
-          <p class="eyebrow">Mentor Coaching for ICF Level 1 &amp; 2</p>
-          <h2 class="h-display">Working towards your ICF credential?</h2>
-          <p class="lede">I offer structured, reflective mentor coaching to help you deepen your coaching practice, strengthen your application of the ICF Core Competencies and build confidence as a coach.</p>
+          <p class="eyebrow">Mentor Coaching for ICF Level 1 &amp; Level 2 Coaches</p>
+          <h2 class="h-display">ICF Mentor Coaching</h2>
+          <p class="lede">Working towards your ICF credential or looking to deepen your coaching practice?</p>
+        </div>
+        <div class="prose" style="margin-top:var(--s4)">
+          <p>I offer structured, reflective mentor coaching designed to help coaches strengthen their application of the ICF Core Competencies, develop greater coaching awareness and build confidence in their practice.</p>
+          <p>As an ICF-registered Mentor Coach, I work with coaches pursuing Level 1 (ACC) and Level 2 (PCC) credentials.</p>
         </div>
         <ul class="badges" aria-label="Mentor coaching credentials">
           <li>ICF-registered Mentor Coach</li>
+          <li>Level 1 &amp; Level 2 Mentor Coaching</li>
           <li>10+ coaches mentored</li>
-          <li>MCS application in progress</li>
         </ul>
-        <p class="mentor-tagline">Strengthen your coaching. Deepen your practice. Prepare for your ICF credential.</p>
-        <div class="hero-actions"><a class="btn btn--primary" href="#contact">Start a Conversation</a></div>
+        <p class="mentor-tagline">Strengthen your coaching. Deepen your practice. Grow as a coach.</p>
+        <div class="hero-actions"><a class="btn btn--primary" href="#start">Start a Conversation</a></div>
       </div>
-      <ul class="mentor-points">
-        <li><strong>Mentoring on your coaching</strong><span>Feedback on your sessions against the ICF Core Competencies.</span></li>
-        <li><strong>Live demonstrations</strong><span>See the competencies applied in real coaching conversations.</span></li>
-        <li><strong>Practice sessions</strong><span>Build fluency and confidence through structured practice.</span></li>
-        <li><strong>Credential preparation</strong><span>Prepare for the ICF Level 1 (ACC) and Level 2 (PCC) credentialing exams.</span></li>
-      </ul>
+      <div>
+        <h3 class="h2 col-title">What mentor coaching can include</h3>
+        <ul class="mentor-points">
+          <li><strong>Reflective mentoring</strong><span>Explore your coaching practice, choices and areas for development.</span></li>
+          <li><strong>Session observation &amp; feedback</strong><span>Receive focused feedback against the ICF Core Competencies and relevant PCC Markers.</span></li>
+          <li><strong>Practice &amp; development</strong><span>Strengthen your coaching skills through structured practice and reflection.</span></li>
+          <li><strong>Credential preparation</strong><span>Build confidence and readiness for the ICF credentialing process.</span></li>
+        </ul>
+        <div class="mentor-approach">
+          <h3 class="h2">My approach</h3>
+          <p>Mentor coaching is a collaborative learning relationship. My role is not to tell you how to coach, but to help you observe, reflect, experiment and develop your own coaching capability.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -491,31 +569,41 @@ a { color: inherit; }
       <div>
         <div class="head">
           <p class="eyebrow">About Ruth</p>
-          <h2 class="h-display">HR leader, corporate insider, coach</h2>
-          <p class="lede">I believe that meaningful career growth begins with the willingness to pause, reflect and ask better questions.</p>
+          <h2 class="h-display">HR leader. Corporate insider. Professional coach.</h2>
+          <p class="lede">I believe meaningful career growth begins with the willingness to pause, reflect and ask better questions.</p>
         </div>
         <div class="prose">
-          <p>I am Ruth Singh, a Professional Certified Coach (PCC) with the International Coaching Federation, with more than 25 years of experience across Human Resources, leadership and organisational development.</p>
-          <p>I moved into full-time coaching and training in 2018, following an inner calling. I am convinced that excellence in life and career comes from continuous learning and a willingness to grow.</p>
-          <p>My corporate career has taken me across manufacturing, financial services, FMCG, pharma, retail and other sectors, giving me a first-hand understanding of the realities of organisations, careers and leadership.</p>
-          <p>Before becoming a full-time coach, I held senior HR leadership roles, including Head of HR at Emkay Global Financial Services and General Manager – HR at Sapat Group of Companies. Earlier in my career, I spent over 12 years with ACC, working in corporate HR and gaining extensive exposure to plant and manufacturing environments.</p>
-          <p>Since 2018, through Propel HR Consultancy, I have worked with professionals and leaders across career stages, from entry level to C-suite. Today, I bring together my experience as an HR professional, corporate leader and coach to help individuals:</p>
+          <p>I am an ICF Professional Certified Coach (PCC) with more than 25 years of experience across Human Resources, leadership and organisational development.</p>
+          <p>My corporate career gave me first-hand experience of the realities of organisations, leadership, workplace relationships, performance and career decisions. I have worked across manufacturing, financial services, FMCG, pharma, retail and other sectors, including senior HR leadership roles.</p>
+          <p>Today, I bring together three perspectives:</p>
+          <ul class="perspectives">
+            <li><strong>The HR professional</strong><span>who understands organisations and workplace realities.</span></li>
+            <li><strong>The corporate leader</strong><span>who understands the pressures and responsibilities of leadership.</span></li>
+            <li><strong>The coach</strong><span>who creates the space for clients to think, reflect, discover and choose.</span></li>
+          </ul>
+          <p>I help clients:</p>
           <ul class="helps">
             <li>Gain clarity about their career direction</li>
-            <li>Navigate career transitions</li>
+            <li>Navigate career transitions and pivots</li>
             <li>Prepare for leadership roles</li>
-            <li>Strengthen their executive presence</li>
-            <li>Improve their effectiveness and impact</li>
-            <li>Manage workplace challenges</li>
+            <li>Strengthen executive presence and influence</li>
+            <li>Improve effectiveness and impact</li>
+            <li>Navigate workplace challenges</li>
             <li>Build confidence and resilience</li>
-            <li>Stay future-ready in a changing world</li>
+            <li>Develop future-ready capabilities</li>
           </ul>
+          <p>My approach is grounded in curiosity, reflection, practical action and continuous learning.</p>
         </div>
         <div class="pull">
           <p class="eyebrow">My coaching philosophy</p>
-          <p>I don’t believe coaching is about telling people what they should do. It is about creating the space to think, reflect, discover and choose.</p>
+          <p>I don’t believe coaching is about telling people what they should do.</p>
+          <p>It is about creating the space to think, reflect, discover and choose.</p>
         </div>
-        <p class="prose">My role is to help you see possibilities, challenge assumptions, recognise your strengths and take purposeful action towards the future you want to create.</p>
+        <div class="prose">
+          <p>My role is to help you see possibilities, challenge assumptions, recognise your strengths and explore perspectives that may not be immediately visible.</p>
+          <p>Ultimately, the choices belong to you.</p>
+          <p>My responsibility is to create a thoughtful, confidential and non-judgmental space in which you can make those choices with greater clarity and confidence — and turn insight into purposeful action.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -526,14 +614,19 @@ a { color: inherit; }
       <div class="why-top">
         <div>
           <div class="head" style="margin-bottom:0">
-            <p class="eyebrow">Why work with Ruth</p>
-            <h2 class="h-display">Coaching grounded in real-world corporate experience</h2>
-            <p class="lede">I don’t just understand leadership and career challenges from a coaching perspective. I have experienced the corporate world from within: leading HR functions, advising senior leaders, building teams and navigating organisational change.</p>
+            <p class="eyebrow">Why Ruth</p>
+            <h2 class="h-display">Why work with Ruth?</h2>
+            <p class="h2" style="margin-top:var(--s2)">Coaching grounded in real-world corporate experience</p>
+          </div>
+          <div class="why-body">
+            <p>I don’t just understand leadership and career challenges from a coaching perspective. I have experienced the corporate world from within.</p>
+            <p>For more than 25 years, I worked in HR and senior HR leadership roles — managing people, advising leaders, building HR functions, navigating organisational change and dealing with the everyday realities of the workplace.</p>
+            <p>That experience gives me a practical understanding of the situations my clients bring to coaching.</p>
           </div>
           <ul class="glance" aria-label="Experience at a glance">
-            <li><strong>25+</strong><span>Years of HR and corporate experience</span></li>
-            <li><strong>1,800+</strong><span>Coaching hours</span></li>
-            <li><strong>1,000+</strong><span>Professionals coached, from entry level to C-suite</span></li>
+            <li><strong>25+</strong><span>Years of HR &amp; corporate experience</span></li>
+            <li><strong>2,000+</strong><span>Coaching hours</span></li>
+            <li><strong>1,000+</strong><span>Professionals coached</span></li>
             <li><strong>PCC</strong><span>Professional Certified Coach, International Coaching Federation</span></li>
           </ul>
         </div>
@@ -550,20 +643,21 @@ a { color: inherit; }
           <p>Managed HR for 1,800 management staff across 17 plant locations, gaining extensive exposure to multi-site manufacturing HR, plant culture, performance, workforce practices and leadership development.</p>
         </article>
         <article class="employer">
-          <span class="meta">FMCG / Pharma manufacturing</span>
+          <span class="meta">FMCG / Pharma Manufacturing</span>
           <h4 class="h2" style="margin:0">Sapat Group of Companies</h4>
-          <p>Built the HR function for a 600+ employee group, covering HR operations, talent acquisition, performance management, compensation and employee relations.</p>
+          <p>Built and led the HR function for a 600+ employee group, covering HR operations, talent acquisition, performance management, compensation and employee relations.</p>
         </article>
         <article class="employer">
-          <span class="meta">Financial services</span>
+          <span class="meta">Financial Services</span>
           <h4 class="h2" style="margin:0">Emkay Global Financial Services</h4>
-          <p>Led the full HR function across Institutional Equity, Retail Broking, Insurance, Investment Banking and Wealth Management divisions.</p>
+          <p>Led the HR function across Institutional Equity, Retail Broking, Insurance, Investment Banking and Wealth Management.</p>
         </article>
       </div>
       <div class="industries">
-        <h3 class="h2">Industries I have coached in</h3>
+        <h3 class="h2">Experience across industries</h3>
+        <p class="lede">I have coached professionals and leaders across a wide range of industries, functions and career stages.</p>
         <ul>
-          <li>Financial Services</li><li>Banking &amp; Finance</li><li>Investment Banking</li><li>IT &amp; Services</li><li>Management Consulting</li><li>Consumer &amp; Retail</li><li>Pharmaceuticals</li><li>Automotive</li><li>Manufacturing</li><li>Construction</li><li>Oil &amp; Energy</li><li>Media</li>
+          <li>Financial Services</li><li>Banking &amp; Finance</li><li>Investment Banking</li><li>IT &amp; Technology</li><li>Management Consulting</li><li>Consumer &amp; Retail</li><li>Pharmaceuticals</li><li>Automotive</li><li>Manufacturing</li><li>Construction</li><li>Oil &amp; Energy</li><li>Media</li>
         </ul>
       </div>
     </div>
@@ -573,8 +667,9 @@ a { color: inherit; }
   <section class="section" id="testimonials">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow">Testimonials</p>
+        <p class="eyebrow">What clients say about working with me</p>
         <h2 class="h-display">In their words</h2>
+        <p class="lede">Every coaching relationship is different. These reflections from clients highlight some of the ways coaching has helped them gain clarity, confidence and greater impact.</p>
       </div>
       <div class="quotes">
         <figure class="quote">
@@ -601,27 +696,27 @@ a { color: inherit; }
     <div class="wrap cred-grid">
       <div>
         <p class="eyebrow">Credentials</p>
-        <h2 class="h1 col-title">Qualifications</h2>
+        <h2 class="h1 col-title">Credentials &amp; professional development</h2>
         <ul class="creds">
-          <li><strong>Professional Certified Coach (PCC)</strong><span>International Coaching Federation · renewed 2025</span></li>
+          <li><strong>Professional Certified Coach (PCC)</strong><span>International Coaching Federation · Renewed 2025</span></li>
           <li><strong>Master’s in Human Resource Management</strong><span>Tata Institute of Social Sciences (TISS), Mumbai</span></li>
           <li><strong>Master NLP Practitioner</strong></li>
           <li><strong>Group Coaching Practitioner</strong></li>
-          <li><strong>Thomas PPA DISC Assessor</strong></li>
+          <li><strong>Thomas PPA / DISC Assessor</strong></li>
         </ul>
       </div>
       <div>
         <p class="eyebrow">Experience</p>
         <h2 class="h1 col-title">Professional experience</h2>
         <ol class="timeline">
-          <li class="tl is-current"><span class="tl-dates">2018 – Present</span><div><div class="tl-role">Executive &amp; Leadership Coach</div><div class="tl-org">Propel HR Consultancy</div></div></li>
-          <li class="tl is-current"><span class="tl-dates">2020 – Present</span><div><div class="tl-role">Career Development and Transition Coach</div><div class="tl-org">Freelance Consultant</div></div></li>
+          <li class="tl is-current"><span class="tl-dates">2018 – Present</span><div><div class="tl-role">Executive &amp; Leadership Coach</div><div class="tl-org">Propel Consultancy Services</div></div></li>
+          <li class="tl is-current"><span class="tl-dates">2020 – Present</span><div><div class="tl-role">Career Development &amp; Career Transition Coach</div><div class="tl-org">Independent / Freelance</div></div></li>
           <li class="tl"><span class="tl-dates">2009 – 2018</span><div><div class="tl-role">Head of HR</div><div class="tl-org">Emkay Global Financial Services</div></div></li>
           <li class="tl"><span class="tl-dates">2004 – 2008</span><div><div class="tl-role">General Manager – HR</div><div class="tl-org">Sapat Group of Companies</div></div></li>
-          <li class="tl"><span class="tl-dates">2003 – 2004</span><div><div class="tl-role">Director</div><div class="tl-org">Mangalam Placements – Executive Search</div></div></li>
-          <li class="tl"><span class="tl-dates">2000 – 2003</span><div><div class="tl-role">Human Resources Consultant</div><div class="tl-org">Propel HR Consultancy</div></div></li>
+          <li class="tl"><span class="tl-dates">2003 – 2004</span><div><div class="tl-role">Director – Executive Search</div><div class="tl-org">Mangalam Placements</div></div></li>
+          <li class="tl"><span class="tl-dates">2000 – 2003</span><div><div class="tl-role">Human Resources Consultant</div><div class="tl-org">Propel Consultancy Services</div></div></li>
           <li class="tl"><span class="tl-dates">1999 – 2000</span><div><div class="tl-role">Lecturer – Human Resource Management</div><div class="tl-org">Defence Services Staff College, Wellington</div></div></li>
-          <li class="tl"><span class="tl-dates">1986 – 1998</span><div><div class="tl-role">Manager – HR</div><div class="tl-org">Associated Cement Companies Ltd (ACC)</div></div></li>
+          <li class="tl"><span class="tl-dates">1986 – 1998</span><div><div class="tl-role">Manager – HR</div><div class="tl-org">Associated Cement Companies Ltd. (ACC)</div></div></li>
         </ol>
       </div>
     </div>
@@ -633,15 +728,12 @@ a { color: inherit; }
       <div class="head">
         <p class="eyebrow">Insights</p>
         <h2 class="h-display">Questions worth asking</h2>
-        <p class="lede">Articles on careers, leadership and the changing workplace.</p>
+        <p class="lede">Thoughts and practical perspectives on careers, leadership, workplace challenges and the changing world of work.</p>
       </div>
       <ul class="insights">
-        <li class="insight"><span class="tag">Career</span><h3>Should I stay in my current role or look for a new opportunity?</h3><span class="soon">Coming soon</span></li>
-        <li class="insight"><span class="tag">New managers</span><h3>5 things new managers need to learn quickly</h3><span class="soon">Coming soon</span></li>
-        <li class="insight"><span class="tag">Leadership</span><h3>Executive presence: what it really means</h3><span class="soon">Coming soon</span></li>
-        <li class="insight"><span class="tag">Career</span><h3>How to prepare for a career transition</h3><span class="soon">Coming soon</span></li>
-        <li class="insight"><span class="tag">Leadership</span><h3>How to communicate with senior stakeholders</h3><span class="soon">Coming soon</span></li>
-        <li class="insight"><span class="tag">Future of work</span><h3>How AI is changing careers, and what professionals should do about it</h3><span class="soon">Coming soon</span></li>
+        <li class="insight"><span class="tag">Career</span><h3>Should I stay in my current role or look for a new opportunity?</h3></li>
+        <li class="insight"><span class="tag">Leadership</span><h3>Executive presence: what it really means</h3></li>
+        <li class="insight"><span class="tag">Future of Work</span><h3>How AI is changing careers — and what professionals should do about it</h3></li>
       </ul>
     </div>
   </section>
@@ -655,7 +747,8 @@ a { color: inherit; }
         </figure>
         <div>
           <p class="eyebrow">Beyond coaching</p>
-          <p class="body">I believe that continuous learning and a willingness to step outside our comfort zones keep us growing, both personally and professionally. Adventure sports are my passion: I enjoy sailing, and took up scuba diving in Port Blair! Yoga keeps me mentally and physically agile. I love cooking, especially baking, and I am an avid reader. The last book I read was <em>Atlas of the Heart</em> by Brené Brown.</p>
+          <p class="body">I believe continuous learning, curiosity and stepping outside our comfort zones keep us growing — both personally and professionally.</p>
+          <p class="body">Outside coaching, I enjoy sailing, scuba diving, yoga, cooking and reading.</p>
           <p class="body" style="font:italic 400 20px/30px var(--serif);color:var(--navy)">“Making a difference to the lives and careers I connect with keeps my passion for coaching alive.”</p>
         </div>
       </div>
@@ -664,35 +757,77 @@ a { color: inherit; }
 
   <!-- Contact -->
   <section class="inverse contact" id="contact">
-    <div class="wrap contact-grid">
+    <div class="wrap contact-grid contact-grid--form">
       <div>
         <p class="eyebrow">Contact</p>
         <h2>Ready to explore what’s next?</h2>
-        <p class="body">If you are considering a career move, stepping into leadership, navigating a workplace challenge or simply looking for greater clarity about your next chapter, let’s have a conversation.</p>
-        <p class="body">Not sure whether coaching is right for you? That’s okay. The first conversation is an opportunity to understand what you’re looking for and see whether we are a good fit.</p>
-        <div class="contact-actions">
-          <a class="btn btn--primary" href="mailto:ruthnoronhasingh@gmail.com?subject=Coaching%20conversation">Book a Coaching Conversation</a>
+        <p class="body">Whether you are considering a career move, stepping into leadership, navigating a workplace challenge or thinking about your next chapter, let’s have a conversation.</p>
+        <p class="body">You don’t need to have everything figured out before you reach out.</p>
+        <p class="body">Our first conversation is an opportunity to understand what you are looking for, explore what coaching might offer and decide whether we are a good fit.</p>
+        <ul class="details">
+          <li>
+            <span class="k">Email</span>
+            <div class="row"><span class="v" id="email">ruthnoronhasingh@gmail.com</span><button class="copy-btn" id="copy-email" type="button">Copy</button></div>
+          </li>
+          <li>
+            <span class="k">LinkedIn</span>
+            <a class="v" href="https://www.linkedin.com/in/ruthsinghcoach" target="_blank" rel="noopener">linkedin.com/in/ruthsinghcoach</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card" id="start">
+        <div id="form-wrap">
+          <h3>Let’s Start a Conversation</h3>
+          <p class="intro">Tell me a little about what you would like to explore. This will help me understand what you are looking for and make our initial conversation more useful.</p>
+          <form id="conversation-form" class="form-grid" action="https://formsubmit.co/ruthnoronhasingh@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New coaching enquiry from ruthsingh.in">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://ruthsingh.in/#thanks">
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+            <div class="form-pair">
+              <div class="field"><label for="f-name">Name <span class="req">*</span></label><input id="f-name" name="Name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="f-email">Email address <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="form-pair">
+              <div class="field"><label for="f-phone">Phone / WhatsApp number</label><input id="f-phone" name="Phone / WhatsApp" type="tel" autocomplete="tel"></div>
+              <div class="field">
+                <label for="f-interest">I am interested in <span class="req">*</span></label>
+                <select id="f-interest" name="Interested in" required>
+                  <option value="">Choose one</option>
+                  <option>Career Development &amp; Transition</option>
+                  <option>Executive &amp; Leadership Coaching</option>
+                  <option>New Manager Coaching</option>
+                  <option>Career Reinvention / Next Chapter</option>
+                  <option>Workplace &amp; EAP Coaching</option>
+                  <option>AI-Ready Career Development</option>
+                  <option>ICF Mentor Coaching – Level 1 / ACC</option>
+                  <option>ICF Mentor Coaching – Level 2 / PCC</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field"><label for="f-message">Briefly tell me what you would like support with <span class="req">*</span></label><textarea id="f-message" name="Message" required></textarea></div>
+            <div class="form-pair">
+              <div class="field"><label for="f-tz">Preferred time zone</label><input id="f-tz" name="Time zone" type="text"></div>
+              <div class="field"><label for="f-times">Preferred days / times for a conversation</label><input id="f-times" name="Preferred days / times" type="text"></div>
+            </div>
+            <div class="field"><label for="f-source">How did you hear about me?</label><input id="f-source" name="How they heard" type="text"></div>
+            <label class="consent"><input type="checkbox" name="Consent to be contacted" value="Yes" required><span>I agree to be contacted regarding my enquiry. <span class="req">*</span></span></label>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button class="btn btn--primary" type="submit" id="form-submit">Request a Conversation</button>
+          </form>
+        </div>
+        <div class="form-done" id="form-done" hidden tabindex="-1">
+          <h3>Thank you</h3>
+          <p>Thank you for reaching out. I will review your message and get back to you shortly to arrange an initial conversation.</p>
         </div>
       </div>
-      <ul class="details">
-        <li>
-          <span class="k">Email</span>
-          <div class="row"><span class="v" id="email">ruthnoronhasingh@gmail.com</span><button class="copy-btn" id="copy-email" type="button">Copy</button></div>
-        </li>
-        <li>
-          <span class="k">LinkedIn</span>
-          <a class="v" href="https://www.linkedin.com/in/ruthsinghcoach" target="_blank" rel="noopener">linkedin.com/in/ruthsinghcoach</a>
-        </li>
-        <li>
-          <span class="k">Website</span>
-          <span class="v">ruthsingh.in</span>
-        </li>
-      </ul>
     </div>
   </section>
 </main>
 
-<div class="cta-bar"><a class="btn btn--primary" href="#contact">Start a Conversation</a></div>
+<div class="cta-bar"><a class="btn btn--primary" href="#start">Start a Conversation</a></div>
 
 <footer class="footer">
   <div class="wrap footer-inner">
@@ -700,6 +835,7 @@ a { color: inherit; }
     <ul>
       <li><a href="#about">About Ruth</a></li>
       <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#mentor">Mentor Coaching</a></li>
       <li><a href="#why">Why Ruth</a></li>
       <li><a href="#insights">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -738,6 +874,39 @@ a { color: inherit; }
     }, { rootMargin: '-45% 0px -50% 0px' });
     ids.forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   }
+
+  // Booking form
+  var form = document.getElementById('conversation-form');
+  var nameInput = document.getElementById('f-name');
+  var wrap = document.getElementById('form-wrap');
+  var doneBox = document.getElementById('form-done');
+  var err = document.getElementById('form-error');
+  var submit = document.getElementById('form-submit');
+  function showDone() { wrap.hidden = true; doneBox.hidden = false; doneBox.focus(); }
+  if (location.hash === '#thanks') { showDone(); document.getElementById('start').scrollIntoView(); }
+  try { document.getElementById('f-tz').value = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+  document.querySelectorAll('a[href="#start"]').forEach(function (a) {
+    a.addEventListener('click', function () { if (!wrap.hidden) setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 450); });
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.hidden = true;
+    var data = {};
+    new FormData(form).forEach(function (v, k) { if (k !== '_next') data[k] = v; });
+    submit.disabled = true; submit.textContent = 'Sending…';
+    fetch('https://formsubmit.co/ajax/ruthnoronhasingh@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (String(j.success) !== 'true') throw new Error(j.message || 'Failed');
+      showDone();
+    }).catch(function () {
+      err.innerHTML = 'Sorry, your message could not be sent. Please email <a href="mailto:ruthnoronhasingh@gmail.com" style="color:inherit">ruthnoronhasingh@gmail.com</a> instead.';
+      err.hidden = false;
+      submit.disabled = false; submit.textContent = 'Request a Conversation';
+    });
+  });
 })();
 </script>
 
