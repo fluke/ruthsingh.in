@@ -902,7 +902,11 @@ a { color: inherit; }
       if (String(j.success) !== 'true') throw new Error(j.message || 'Failed');
       showDone();
     }).catch(function () {
-      err.innerHTML = 'Sorry, your message could not be sent. Please email <a href="mailto:ruthnoronhasingh@gmail.com" style="color:inherit">ruthnoronhasingh@gmail.com</a> instead.';
+      var lines = [];
+      Object.keys(data).forEach(function (k) { if (k.charAt(0) !== '_' && data[k]) lines.push((k === 'email' ? 'Email' : k) + ': ' + data[k]); });
+      var mailto = 'mailto:ruthnoronhasingh@gmail.com?subject=' + encodeURIComponent('Coaching enquiry from ' + (data.Name || 'ruthsingh.in')) + '&body=' + encodeURIComponent(lines.join('\n'));
+      err.innerHTML = 'Sorry, your message could not be sent from this page. <a style="color:inherit;font-weight:600">Send it by email instead</a>; your details will be filled in for you. Or write to ruthnoronhasingh@gmail.com.';
+      err.querySelector('a').href = mailto;
       err.hidden = false;
       submit.disabled = false; submit.textContent = 'Request a Conversation';
     });
