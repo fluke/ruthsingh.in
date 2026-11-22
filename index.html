@@ -295,7 +295,6 @@ a { color: inherit; }
 .form-card .btn--primary { background: var(--navy); color: var(--on-navy); justify-self: start; }
 .form-card .btn--primary:hover { background: var(--navy-hover); }
 .form-card .btn[disabled] { opacity: .6; cursor: progress; }
-.form-error { font-size: 15px; line-height: 22px; color: var(--garnet); }
 .form-done { display: grid; gap: var(--s3); }
 .form-done p { font: italic 400 20px/30px var(--serif); color: var(--navy); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
@@ -534,11 +533,11 @@ a { color: inherit; }
         </div>
         <div class="prose" style="margin-top:var(--s4)">
           <p>I offer structured, reflective mentor coaching designed to help coaches strengthen their application of the ICF Core Competencies, develop greater coaching awareness and build confidence in their practice.</p>
-          <p>As an ICF-registered Mentor Coach, I work with coaches pursuing Level 1 (ACC) and Level 2 (PCC) credentials.</p>
+          <p>I am an ICF-registered Mentor Coach, certified to mentor coaches for ICF Level 1 (ACC) and Level 2 (PCC) credentials.</p>
         </div>
         <ul class="badges" aria-label="Mentor coaching credentials">
           <li>ICF-registered Mentor Coach</li>
-          <li>Level 1 &amp; Level 2 Mentor Coaching</li>
+          <li>Certified for ICF Level 1 &amp; Level 2</li>
           <li>10+ coaches mentored</li>
         </ul>
         <p class="mentor-tagline">Strengthen your coaching. Deepen your practice. Grow as a coach.</p>
@@ -784,6 +783,7 @@ a { color: inherit; }
             <input type="hidden" name="_subject" value="New coaching enquiry from ruthsingh.in">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://ruthsingh.in/#thanks">
+            <input type="hidden" name="_autoresponse" id="f-autoresponse" value="">
             <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
             <div class="form-pair">
               <div class="field"><label for="f-name">Name <span class="req">*</span></label><input id="f-name" name="Name" type="text" autocomplete="name" required></div>
@@ -814,7 +814,6 @@ a { color: inherit; }
             </div>
             <div class="field"><label for="f-source">How did you hear about me?</label><input id="f-source" name="How they heard" type="text"></div>
             <label class="consent"><input type="checkbox" name="Consent to be contacted" value="Yes" required><span>I agree to be contacted regarding my enquiry. <span class="req">*</span></span></label>
-            <p class="form-error" id="form-error" role="alert" hidden></p>
             <button class="btn btn--primary" type="submit" id="form-submit">Request a Conversation</button>
           </form>
         </div>
@@ -880,7 +879,6 @@ a { color: inherit; }
   var nameInput = document.getElementById('f-name');
   var wrap = document.getElementById('form-wrap');
   var doneBox = document.getElementById('form-done');
-  var err = document.getElementById('form-error');
   var submit = document.getElementById('form-submit');
   function showDone() { wrap.hidden = true; doneBox.hidden = false; doneBox.focus(); }
   if (location.hash === '#thanks') { showDone(); document.getElementById('start').scrollIntoView(); }
@@ -888,29 +886,20 @@ a { color: inherit; }
   document.querySelectorAll('a[href="#start"]').forEach(function (a) {
     a.addEventListener('click', function () { if (!wrap.hidden) setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 450); });
   });
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    err.hidden = true;
-    var data = {};
-    new FormData(form).forEach(function (v, k) { if (k !== '_next') data[k] = v; });
+  var autoresponse = [
+    'Dear {name},',
+    'Thank you for reaching out and for your interest in my coaching services.',
+    'I appreciate you taking the time to share your requirements and am glad you connected with me.',
+    'I am currently engaged with prior commitments and may take a little time to respond. However, please be assured that I have received your enquiry and will get back to you as soon as I can.',
+    'Thank you for your patience and understanding. I look forward to connecting with you!',
+    'Warm regards,\nRuth Singh\nCareer, Leadership & Transition Coach\nPCC – ICF\nwww.ruthsingh.in'
+  ].join('\n\n');
+  form.addEventListener('submit', function () {
+    var name = nameInput.value.trim() || 'there';
+    document.getElementById('f-autoresponse').value = autoresponse.replace('{name}', name);
     submit.disabled = true; submit.textContent = 'Sending…';
-    fetch('https://formsubmit.co/ajax/ruthnoronhasingh@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function (r) { return r.json(); }).then(function (j) {
-      if (String(j.success) !== 'true') throw new Error(j.message || 'Failed');
-      showDone();
-    }).catch(function () {
-      var lines = [];
-      Object.keys(data).forEach(function (k) { if (k.charAt(0) !== '_' && data[k]) lines.push((k === 'email' ? 'Email' : k) + ': ' + data[k]); });
-      var mailto = 'mailto:ruthnoronhasingh@gmail.com?subject=' + encodeURIComponent('Coaching enquiry from ' + (data.Name || 'ruthsingh.in')) + '&body=' + encodeURIComponent(lines.join('\n'));
-      err.innerHTML = 'Sorry, your message could not be sent from this page. <a style="color:inherit;font-weight:600">Send it by email instead</a>; your details will be filled in for you. Or write to ruthnoronhasingh@gmail.com.';
-      err.querySelector('a').href = mailto;
-      err.hidden = false;
-      submit.disabled = false; submit.textContent = 'Request a Conversation';
-    });
   });
+  window.addEventListener('pageshow', function () { submit.disabled = false; submit.textContent = 'Request a Conversation'; });
 })();
 </script>
 
